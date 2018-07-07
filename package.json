@@ -1,0 +1,43 @@
+{
+  "name": "@joejukan/call-flow",
+  "version": "0.0.0",
+  "description": "A Flow-Based Programming Framework",
+  "main": "lib/index",
+  "scripts": {
+    "docs": "rm -rf docs/* && typedoc --out docs/ --readme README.md --mode file --module commonjs --target ES5 --exclude \"**/*+(index|.spec|.e2e).ts\" --excludePrivate --excludeProtected src/",
+    "clean": "rm -rf lib/*",
+    "build": "tsc",
+    "test": "./node_modules/.bin/jasmine-ts",
+    "preversion": "npm run clean && npm test",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push --tags && npm publish --access public",
+    "patch": "npm version patch -m \"[PATCH] version (%s)\"",
+    "minor": "npm version minor -m \"[MINOR] version (%s)\"",
+    "major": "npm version major -m \"[MAJOR] version (%s)\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joejukan/call-flow.git"
+  },
+  "keywords": [
+    "Flow",
+    "Flow-Based",
+    "Call",
+    "Typescript",
+    "FBP"
+  ],
+  "author": "Joseph Eniojukan (https://github.com/joejukan)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joejukan/call-flow/issues"
+  },
+  "homepage": "https://github.com/joejukan/call-flow#readme",
+  "dependencies": {
+    "@joejukan/web-kit": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "2.8.8",
+    "jasmine-spec-reporter": "4.2.1",
+    "jasmine-ts": "0.2.1"
+  }
+}
